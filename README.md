@@ -43,7 +43,7 @@ be found at [https://hexdocs.pm/gumbo_query_ex](https://hexdocs.pm/gumbo_query_e
 
 ## Update submodules
 
-	git submodule update
+	git submodule update --init --recursive --remote
 
 ## Compile and test
 
