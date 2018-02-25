@@ -55,6 +55,10 @@ be found at [https://hexdocs.pm/gumbo_query_ex](https://hexdocs.pm/gumbo_query_e
 
 	mix clean
 
+## Benchmark
+
+	mix bench
+
 ## Roadmap
 
 - [x] Bindings

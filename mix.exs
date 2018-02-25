@@ -97,7 +97,7 @@ defmodule Mix.Tasks.Compile.GumboQueryExMake do
       IO.warn "Windows is not yet a target."
       exit(1)
     else
-      Shell.exec(System.cwd() <> "/compile.sh", @artifacts)
+      Shell.exec(System.cwd() <> "/compile.sh", [])
       # {result, _error_code} = System.cmd(System.cwd() <> "/compile.sh",
       #   @artifacts,
       #   stderr_to_stdout: true,
