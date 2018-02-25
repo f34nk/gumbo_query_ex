@@ -16,8 +16,8 @@ defmodule GumboQueryClientTest do
 
   test "parse large file" do
     {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
-    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/github_trending_js.html"), "h1 a"})
-    assert {:find, "\n        Explore GitHub\n      "} = reply
+    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "h1"})
+    assert {:find, "Lorem Ipsum"} = reply
   end
 
   test "can be started with an already started cnode" do
