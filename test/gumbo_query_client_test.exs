@@ -14,7 +14,7 @@ defmodule GumboQueryClientTest do
     assert {:find, "some link"} = reply
   end
 
-  test "parse large file" do
+  test "parse html from file" do
     {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
     {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "h1"})
     assert {:find, "Lorem Ipsum"} = reply
