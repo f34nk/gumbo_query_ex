@@ -38,7 +38,6 @@ defmodule GumboQueryEx.MixProject do
       files: [
         "lib",
         "cpp_src",
-        "priv/.gitignore",
         "test",
         "compile.sh",
         "clean.sh",
@@ -89,10 +88,10 @@ defmodule Shell do
 end
 
 defmodule Mix.Tasks.Compile.GumboQueryExMake do
-  @artifacts [
-    "priv/gumbo_query_ex.so",
-    "priv/gumbo_query_ex_worker"
-  ]
+  # @artifacts [
+  #   "priv/gumbo_query_ex.so",
+  #   "priv/gumbo_query_ex_worker"
+  # ]
 
   def run(_) do
     if match? {:win32, _}, :os.type do

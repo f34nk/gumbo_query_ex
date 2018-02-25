@@ -1,5 +1,4 @@
-## *First draft.*
-## *Not yet published.*
+## *Under active developmend. Not yet published.*
 
 # GumboQueryEx
 
