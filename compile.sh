@@ -36,6 +36,7 @@ then
 	# gumbo-query
 	# https://github.com/lazytiger/gumbo-query#installation
 	echo "Compiling gumbo-query..."
+	mkdir -p cpp_src/gumbo-query/build
 	cd cpp_src/gumbo-query/build
 	cmake -IGumbo_INCLUDE_DIR="$current/cpp_src/gumbo-parser/src" -DGumbo_LIBRARY="$current/cpp_src/gumbo-parser/.libs/libgumbo.so" -DGumbo_static_LIBRARY="$current/cpp_src/gumbo-parser/.libs/libgumbo.a" ..
 	make

@@ -16,7 +16,7 @@ check=`find cpp_src \( -name libgq.a -o -name libgq.so \)`
 if [ ! -z "$check" ]
 then
 	echo "Clean gumbo-query..."
-	cd ../gumbo-query/build
+	cd cpp_src/gumbo-query/build
 	make clean
 	cd $current
 	echo "done"
