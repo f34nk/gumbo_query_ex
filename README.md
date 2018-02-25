@@ -16,11 +16,9 @@ The binding is implemented as a **C-Node** following the excellent example in [@
 
 ## Example
 
-*Check out tests :)*
+*Right now you can only clone the repo and execute tests...*
 
 ## Installation
-
-*Right now you can only clone the repo and execute tests...*
 
 	git clone git@github.com:f34nk/gumbo_query_ex.git
 	cd gumbo_query_ex
