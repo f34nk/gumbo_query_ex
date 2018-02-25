@@ -18,6 +18,8 @@ The binding is implemented as a **C-Node** following the excellent example in [@
 
 *Right now you can only clone the repo and execute tests...*
 
+https://github.com/f34nk/gumbo_query_ex/blob/master/test/gumbo_query_client_test.exs#L11-L15
+
 ## Installation
 
 	git clone git@github.com:f34nk/gumbo_query_ex.git
