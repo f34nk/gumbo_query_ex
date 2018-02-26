@@ -1,4 +1,4 @@
-## *Under active developmend. Not yet published.*
+## *Experimental. Not yet published.*
 
 # GumboQueryEx
 
