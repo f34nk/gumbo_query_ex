@@ -5,25 +5,37 @@ defmodule GumboQueryClientTest do
 
   setup_all(_) do
     Nodex.Distributed.up
-    :ok
+    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+    %{pid: pid}
   end
 
-  test "greets the world" do
-    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+  test "greets the world", context do
+    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+    %{pid: pid} = context
     {:ok, reply} = Cnode.call(pid, {:find, "<h1><a>some link</a></h1>", "h1 a"})
-    assert {:find, "some link"} = reply
+    assert {:find, "<a>some link</a>"} = reply
   end
 
-  test "find title" do
-    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+  test "find title", context do
+    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+    %{pid: pid} = context
     {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "h1"})
-    assert {:find, "Lorem Ipsum"} = reply
+    # |> IO.inspect
+    assert {:find, "<h1>Lorem Ipsum</h1>"} = reply
   end
 
-  test "find li:nth-child(1)" do
-    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+  test "find li:nth-child(1)", context do
+    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+    %{pid: pid} = context
     {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "li:nth-child(1)"})
-    assert {:find, "Coffee"} = reply
+    assert {:find, "<li>Coffee</li>"} = reply
+  end
+
+  test "find li", context do
+    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+    %{pid: pid} = context
+    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "li"})
+    assert {:find, "<li>Coffee</li>,<li>Tea</li>,<li><span>Milk</span></li>"} = reply
   end
 
   test "can be started with an already started cnode" do

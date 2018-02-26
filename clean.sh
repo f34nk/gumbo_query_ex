@@ -2,32 +2,23 @@
 
 current=`pwd`
 
-check=`find cpp_src \( -name libgumbo.a -o -name libgumbo.so \)`
+check=`find target \( -name libgumbo.a -o -name libgumbo.so \)`
 if [ ! -z "$check" ]
 then
 	echo "Clean gumbo-parser..."
-	cd cpp_src/gumbo-parser
+	cd target/gumbo-parser
 	make clean
 	cd $current
 	echo "done"
 fi
 
-check=`find cpp_src \( -name libgq.a -o -name libgq.so \)`
+check=`find target \( -name libgq.a -o -name libgq.so \)`
 if [ ! -z "$check" ]
 then
 	echo "Clean gumbo-query..."
-	cd cpp_src/gumbo-query/build
+	cd target/gumbo-query/build
 	make clean
-	cd $current
-	echo "done"
-fi
-
-check=`find priv -name example_client`
-if [ ! -z "$check" ]
-then
-	echo "remove example_client..."
-	cd priv
-	rm example_client
+	rm -rf *
 	cd $current
 	echo "done"
 fi
@@ -35,6 +26,11 @@ fi
 check=`find priv -name gumbo_query_client`
 if [ ! -z "$check" ]
 then
+	echo "Clean gumbo_query_client..."
+	cd target/gumbo_query_client/build
+	make clean
+	rm -rf *
+	cd $current
 	echo "remove gumbo_query_client..."
 	cd priv
 	rm gumbo_query_client

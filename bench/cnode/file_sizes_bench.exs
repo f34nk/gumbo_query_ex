@@ -16,17 +16,17 @@ defmodule CnodeFileSizesBench do
 
   bench "github_trending_js.html 341k" do
     {pid, ref, _, _} = bench_context
-    {:ok, reply} = Cnode.call(pid, {:find, ref, "h1"})
+    {:ok, reply} = Cnode.call(pid, {:find, ref, "p"})
   end
 
   bench "w3c_html5.html 131k" do
     {pid, _, ref, _} = bench_context
-    {:ok, reply} = Cnode.call(pid, {:find, ref, "h1"})
+    {:ok, reply} = Cnode.call(pid, {:find, ref, "p"})
   end
 
   bench "wikipedia_hyperlink.html 97k" do
     {pid, _, _, ref} = bench_context
-    {:ok, reply} = Cnode.call(pid, {:find, ref, "h1"})
+    {:ok, reply} = Cnode.call(pid, {:find, ref, "p"})
   end
 
 end

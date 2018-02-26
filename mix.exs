@@ -37,7 +37,7 @@ defmodule GumboQueryEx.MixProject do
       },
       files: [
         "lib",
-        "cpp_src",
+        "target",
         "test",
         "compile.sh",
         "clean.sh",
@@ -63,7 +63,8 @@ defmodule GumboQueryEx.MixProject do
       # benchmarking helpers
       {:benchfella, "~> 0.3.0", only: :dev},
       # cnode helpers
-      {:nodex, "~> 0.1.1"}
+      {:nodex, "~> 0.1.1"},
+      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false}
     ]
   end
 end

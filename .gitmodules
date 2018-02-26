@@ -1,6 +1,6 @@
-[submodule "cpp_src/gumbo-query"]
-	path = cpp_src/gumbo-query
+[submodule "target/gumbo-query"]
+	path = target/gumbo-query
 	url = https://github.com/lazytiger/gumbo-query.git
-[submodule "cpp_src/gumbo-parser"]
-	path = cpp_src/gumbo-parser
+[submodule "target/gumbo-parser"]
+	path = target/gumbo-parser
 	url = https://github.com/google/gumbo-parser.git
