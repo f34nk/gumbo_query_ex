@@ -41,6 +41,7 @@ defmodule GumboQueryEx.MixProject do
         "test",
         "compile.sh",
         "clean.sh",
+        "test.sh",
         "mix.exs",
         "README.md",
         "LICENSE"
@@ -88,31 +89,30 @@ defmodule Shell do
 end
 
 defmodule Mix.Tasks.Compile.GumboQueryExMake do
-  # @artifacts [
-  #   "priv/gumbo_query_ex.so",
-  #   "priv/gumbo_query_ex_worker"
-  # ]
-
   def run(_) do
     if match? {:win32, _}, :os.type do
       IO.warn "Windows is not yet a target."
       exit(1)
     else
       Shell.exec(System.cwd() <> "/compile.sh", [])
-      # {result, _error_code} = System.cmd(System.cwd() <> "/compile.sh",
-      #   @artifacts,
-      #   stderr_to_stdout: true,
-      #   env: [{"MIX_ENV", to_string(Mix.env)}]
-      # )
-      # Mix.shell.info result
     end
     :ok
   end
 
   def clean() do
     Shell.exec(System.cwd() <> "/clean.sh", [])
-    # {result, _error_code} = System.cmd(System.cwd() <> "/clean.sh", [], stderr_to_stdout: true)
-    # Mix.shell.info result
+    :ok
+  end
+end
+
+defmodule Mix.Tasks.Test.Target do
+  def run(_) do
+    if match? {:win32, _}, :os.type do
+      IO.warn "Windows is not yet a target."
+      exit(1)
+    else
+      Shell.exec(System.cwd() <> "/test.sh", [])
+    end
     :ok
   end
 end

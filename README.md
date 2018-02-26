@@ -48,13 +48,21 @@ be found at [https://hexdocs.pm/gumbo_query_ex](https://hexdocs.pm/gumbo_query_e
 
 ## Update submodules
 
+All binding targets are added as submodules in the `target/` folder.
+
 	git submodule update --init --recursive --remote
+
+## Target dependencies
+
+	cmake version 3.x
+	libtool (GNU libtool) 2.x
 
 ## Compile and test
 
 	mix deps.get
 	mix compile
 	mix test
+	mix test.target
 
 ## Cleanup
 
@@ -72,6 +80,8 @@ be found at [https://hexdocs.pm/gumbo_query_ex](https://hexdocs.pm/gumbo_query_e
 - [x] Tests
 	- [x] Call as C-Node
 	- [ ] Call as dirty-nif
-- [ ] Parse a HTML-document into a tree
-- [ ] Find nodes using selector
-- [ ] Expose node-retrieval functions
+	- [x] Target tests
+- [ ] Features
+	- [ ] Find nodes using selector
+	- [ ] Parse a HTML-document into a tree
+	- [ ] Expose node-retrieval functions

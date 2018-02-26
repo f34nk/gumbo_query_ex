@@ -46,3 +46,7 @@ target_link_libraries(
   libgq.a
   libgumbo.a
 )
+
+add_subdirectory(test)
+enable_testing()
+add_test(NAME "test_id" COMMAND test_id)
