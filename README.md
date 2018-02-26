@@ -2,8 +2,7 @@
 
 # GumboQueryEx
 
-Elixir/Erlang bindings for lazytigers **gumbo-query**
-Elixir/Erlang bindings for TechnikEmpire **GQ**
+Elixir/Erlang bindings for lazytigers **gumbo-query** and TechnikEmpires **GQ**.
 
 >A CSS selector engine for Google's Gumbo Html parser.
 
