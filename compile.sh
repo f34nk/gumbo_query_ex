@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mix_env=$1
 current=`pwd`
 
 # check=`find /usr/local/lib -name libgumbso*`
@@ -44,9 +45,8 @@ then
 	echo "done"
 fi
 
-check=`find priv -name gumbo_query_client`
-if [ -z "$check" ]
-then
+function compile_gumbo_query_client()
+{
 	echo "Compiling gumbo_query_client..."
 	mkdir -p priv
 	mkdir -p target/gumbo_query_client/build
@@ -57,4 +57,16 @@ then
 	mv gumbo_query_client $current/priv
 	cd $current
 	echo "done"
+}
+
+if [ "$mix_env" = "dev" ] || [ "$mix_env" = "test" ]
+then
+	echo $mix_env
+	compile_gumbo_query_client
+else
+	check=`find priv -name gumbo_query_client`
+	if [ -z "$check" ]
+	then
+		compile_gumbo_query_client
+	fi
 fi

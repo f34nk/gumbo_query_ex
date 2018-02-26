@@ -37,5 +37,10 @@ then
 	make test
 	cd $current
 	echo "done"
-	echo "Test log: target/gumbo_query_client/build/Testing/Temporary"
+
+	logs=( `find target/gumbo_query_client -name LastTest.log` )
+	for i in "${logs[@]}"
+	do
+		echo $current/$i
+	done
 fi

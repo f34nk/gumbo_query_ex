@@ -11,7 +11,7 @@ Elixir/Erlang bindings for lazytigers **gumbo-query**
 - [gumbo-query](https://github.com/lazytiger/gumbo-query)
 	- CSS selectors
 
-The binding is implemented as a **C-Node** following the excellent example in [@Overbryd](https://github.com/Overbryd/nodex) package **nodex**.
+The binding is implemented as a **C-Node** following the excellent example in [@Overbryd](https://github.com/Overbryd/nodex) package **nodex**. If you want to learn how to set up bindings to CPP, you should definitely check it out.
 
 - [nodex](https://github.com/Overbryd/nodex)
 	- distributed Elixir
@@ -81,7 +81,10 @@ All binding targets are added as submodules in the `target/` folder.
 	- [x] Call as C-Node
 	- [ ] Call as dirty-nif
 	- [x] Target tests
+	- [ ] Package test
 - [ ] Features
 	- [ ] Find nodes using selector
 	- [ ] Parse a HTML-document into a tree
 	- [ ] Expose node-retrieval functions
+- [ ] Documentation
+- [ ] Publish as hex package

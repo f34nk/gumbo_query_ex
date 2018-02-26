@@ -6,7 +6,7 @@ defmodule GumboQueryEx.MixProject do
       app: :gumbo_query_ex,
       version: "0.1.0",
       elixir: "~> 1.5",
-      compilers: [:gumbo_query_ex_make] ++ Mix.compilers,
+      compilers: [:gumbo_query_ex_compile] ++ Mix.compilers,
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env() == :prod,
       name: "GumboQueryEx",
@@ -88,13 +88,13 @@ defmodule Shell do
   end
 end
 
-defmodule Mix.Tasks.Compile.GumboQueryExMake do
+defmodule Mix.Tasks.Compile.GumboQueryExCompile do
   def run(_) do
     if match? {:win32, _}, :os.type do
-      IO.warn "Windows is not yet a target."
+      IO.warn "Windows is not supported yet."
       exit(1)
     else
-      Shell.exec(System.cwd() <> "/compile.sh", [])
+      Shell.exec(System.cwd() <> "/compile.sh", [to_string(Mix.env)])
     end
     :ok
   end
@@ -108,7 +108,7 @@ end
 defmodule Mix.Tasks.Test.Target do
   def run(_) do
     if match? {:win32, _}, :os.type do
-      IO.warn "Windows is not yet a target."
+      IO.warn "Windows is not supported yet."
       exit(1)
     else
       Shell.exec(System.cwd() <> "/test.sh", [])
