@@ -64,6 +64,9 @@ All binding targets are added as submodules in the `target/` folder.
 
 ## Compile and test
 
+Choose client (experimental):
+https://github.com/f34nk/gumbo_query_ex/blob/master/compile.sh#L5-L6
+
 	mix deps.get
 	mix compile
 	mix test
