@@ -5,8 +5,9 @@ defmodule GumboQueryClientTest do
 
   setup_all(_) do
     Nodex.Distributed.up
-    cnode = :"foobar@127.0.0.1"
-    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client", cnode: cnode})
+    # stop slaves that might have not been cleaned up
+    Node.list() |> Enum.each(&:slave.stop/1)
+    {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
     content = File.read!("test/fixtures/lorem_ipsum.html")
     %{pid: pid, content: content}
   end
