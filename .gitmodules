@@ -1,6 +1,6 @@
-[submodule "target/gumbo-query"]
-	path = target/gumbo-query
-	url = https://github.com/lazytiger/gumbo-query.git
 [submodule "target/gumbo-parser"]
 	path = target/gumbo-parser
 	url = https://github.com/google/gumbo-parser.git
+[submodule "target/gumbo-query"]
+	path = target/gumbo-query
+	url = https://github.com/lazytiger/gumbo-query.git
