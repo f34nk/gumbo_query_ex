@@ -4,3 +4,6 @@
 [submodule "target/gumbo-query"]
 	path = target/gumbo-query
 	url = https://github.com/lazytiger/gumbo-query.git
+[submodule "target/GQ"]
+	path = target/GQ
+	url = https://github.com/TechnikEmpire/GQ.git

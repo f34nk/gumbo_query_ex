@@ -3,12 +3,16 @@
 # GumboQueryEx
 
 Elixir/Erlang bindings for lazytigers **gumbo-query**
->A library that provides CSS selectors for Google's Gumbo Html parser.
+Elixir/Erlang bindings for TechnikEmpire **GQ**
+
+>A CSS selector engine for Google's Gumbo Html parser.
 
 - [gumbo-parser](https://github.com/google/gumbo-parser)
 	- HTML5 parsing library in pure C99
 	- fully conformant with the HTML5 spec
 - [gumbo-query](https://github.com/lazytiger/gumbo-query)
+	- CSS selectors
+- [GQ](https://github.com/TechnikEmpire/GQ)
 	- CSS selectors
 
 The binding is implemented as a **C-Node** following the excellent example in [@Overbryd](https://github.com/Overbryd/nodex) package **nodex**. If you want to learn how to set up bindings to C/C++, you should definitely check it out.
@@ -23,7 +27,7 @@ The binding is implemented as a **C-Node** following the excellent example in [@
 
 *Right now you can only clone the repo and execute tests...*
 
-https://github.com/f34nk/gumbo_query_ex/blob/master/test/gumbo_query_client_test.exs#L13-L17
+https://github.com/f34nk/gumbo_query_ex/blob/master/test/gumbo_query_client_test.exs
 
 ## Installation
 
@@ -56,6 +60,7 @@ All binding targets are added as submodules in the `target/` folder.
 
 	cmake version 3.x
 	libtool (GNU libtool) 2.x
+	g++ version 5.x
 
 ## Compile and test
 
