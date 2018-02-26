@@ -6,35 +6,31 @@ defmodule GumboQueryClientTest do
   setup_all(_) do
     Nodex.Distributed.up
     {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
-    %{pid: pid}
+    content = File.read!("test/fixtures/lorem_ipsum.html")
+    %{pid: pid, content: content}
   end
 
-  test "greets the world", context do
-    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
+  test "find link", context do
     %{pid: pid} = context
     {:ok, reply} = Cnode.call(pid, {:find, "<h1><a>some link</a></h1>", "h1 a"})
     assert {:find, "<a>some link</a>"} = reply
   end
 
   test "find title", context do
-    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
-    %{pid: pid} = context
-    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "h1"})
-    # |> IO.inspect
+    %{pid: pid, content: content} = context
+    {:ok, reply} = Cnode.call(pid, {:find, content, "h1"})
     assert {:find, "<h1>Lorem Ipsum</h1>"} = reply
   end
 
   test "find li:nth-child(1)", context do
-    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
-    %{pid: pid} = context
-    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "li:nth-child(1)"})
+    %{pid: pid, content: content} = context
+    {:ok, reply} = Cnode.call(pid, {:find, content, "li:nth-child(1)"})
     assert {:find, "<li>Coffee</li>"} = reply
   end
 
   test "find li", context do
-    # {:ok, pid} = Cnode.start_link(%{exec_path: "priv/gumbo_query_client"})
-    %{pid: pid} = context
-    {:ok, reply} = Cnode.call(pid, {:find, File.read!("test/fixtures/lorem_ipsum.html"), "li"})
+    %{pid: pid, content: content} = context
+    {:ok, reply} = Cnode.call(pid, {:find, content, "li"})
     assert {:find, "<li>Coffee</li>,<li>Tea</li>,<li><span>Milk</span></li>"} = reply
   end
 
@@ -52,7 +48,7 @@ defmodule GumboQueryClientTest do
       cnode: cnode
     })
     {:ok, reply} = Cnode.call(pid, {:find, "<h1><a>some link</a></h1>", "h1 a"})
-    assert {:find, "some link"} = reply
+    assert {:find, "<a>some link</a>"} = reply
   end
 
   test "fails when executable does not activate within spawn_inactive_timeout" do

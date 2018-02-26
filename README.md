@@ -5,12 +5,17 @@
 Elixir/Erlang bindings for lazytigers **gumbo-query**
 >A library that provides CSS selectors for Google's Gumbo Html parser.
 
-- [gumbo-parser](https://github.com/google/gumbo-parser): HTML5 parsing library in pure C99; fully conformant with the HTML5 spec
-- [gumbo-query](https://github.com/lazytiger/gumbo-query): CSS selectors
+- [gumbo-parser](https://github.com/google/gumbo-parser)
+	- HTML5 parsing library in pure C99
+	- fully conformant with the HTML5 spec
+- [gumbo-query](https://github.com/lazytiger/gumbo-query)
+	- CSS selectors
 
 The binding is implemented as a **C-Node** following the excellent example in [@Overbryd](https://github.com/Overbryd/nodex) package **nodex**.
 
-- [nodex](https://github.com/Overbryd/nodex): distributed Elixir and C-Nodes
+- [nodex](https://github.com/Overbryd/nodex)
+	- distributed Elixir
+	- save binding with C-Nodes
 
 >C-Nodes are external os-processes that communicate with the Erlang VM through erlang messaging. That way you can implement native code and call into it from Elixir in a safe predictable way. The Erlang VM stays unaffected by crashes of the external process.
 
@@ -18,7 +23,7 @@ The binding is implemented as a **C-Node** following the excellent example in [@
 
 *Right now you can only clone the repo and execute tests...*
 
-https://github.com/f34nk/gumbo_query_ex/blob/master/test/gumbo_query_client_test.exs#L11-L15
+https://github.com/f34nk/gumbo_query_ex/blob/master/test/gumbo_query_client_test.exs#L13-L17
 
 ## Installation
 
