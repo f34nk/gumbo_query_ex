@@ -57,9 +57,12 @@ All binding targets are added as submodules in the `target/` folder.
 
 ## Target dependencies
 
-	cmake version 3.x
-	libtool (GNU libtool) 2.x
-	g++ version 5.x
+	cmake 3.x
+	libtool 2.x
+	g++ 5.x
+	erlang-dev
+	erlang-xmerl
+	erlang-parsetools
 
 ## Compile and test
 
