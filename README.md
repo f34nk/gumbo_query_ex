@@ -1,8 +1,7 @@
 ## *Experimental. Not yet published.*
 
 lexborisov [commented on Oct 14, 2016](https://github.com/lexborisov/myhtml/issues/73#issuecomment-253819403)
->Oh, use Modest to make full use CSS Selectors. See example
-Gumbo slow and does not correspond to the actual specification.
+>Use Modest to make full use CSS Selectors. Gumbo is slow and does not correspond to the actual specification.
 
 I am dropping this project in favor of [modest_ex](https://github.com/f34nk/modest_ex), my Elixir binding to lexborisov's Modest library.
 
